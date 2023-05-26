@@ -1,4 +1,4 @@
-# ViT-Transformers.
+# ViT-Transformers
 This model demonstrates how to implement, train, and evaluate a Vision Transformer for an image classification task on a subset of the CIFAR-10 dataset.
 
 ## Key parts of the code include
