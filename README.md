@@ -13,7 +13,7 @@ This model demonstrates how to implement, train, and evaluate a Vision Transform
 9. Model Evaluation: The model's performance is evaluated based on accuracy and loss during training and validation. Plots are made to visualize these metrics over the epochs. At the end, the model's accuracy and loss on the test data are shown in a bar plot.
 
 ## Install
-!pip install tqdm
-!pip install transformers datasets
-!pip install torchinfo
-!pip install --upgrade tensorflow-addons
+* !pip install tqdm
+* !pip install transformers datasets
+* !pip install torchinfo
+* !pip install --upgrade tensorflow-addons
