@@ -13,7 +13,11 @@ This model demonstrates how to implement, train, and evaluate a Vision Transform
 * Model Evaluation: The model's performance is evaluated based on accuracy and loss during training and validation. Plots are made to visualize these metrics over the epochs. At the end, the model's accuracy and loss on the test data are shown in a bar plot.
 
 ## Install
-* !pip install tqdm
-* !pip install transformers datasets
-* !pip install torchinfo
-* !pip install --upgrade tensorflow-addons
+* python=3.8.11
+* tensorflow-gpu=2.4.1
+* keras==2.4.3
+* keras-applications==1.0.8
+
+## Note:
+* Given the sizable nature of my custom dataset and the fact that each image is approximately 128 pixels, I utilize TensorFlow's distributed training.
+
