@@ -19,5 +19,5 @@ This model demonstrates how to implement, train, and evaluate a Vision Transform
 * keras-applications==1.0.8
 
 ## Note:
-* Given the sizable nature of my custom dataset and the fact that each image is approximately 128 pixels, I utilize TensorFlow's distributed training.
+* Given the sizable nature of my custom dataset and the fact that each image is approximately 128 pixels, I utilized TensorFlow's distributed training.
 
