@@ -1,4 +1,3 @@
-
 def configure_gpu():
     import tensorflow as tf
     if tf.config.list_physical_devices('GPU'):
@@ -8,9 +7,7 @@ def configure_gpu():
             tf.config.experimental.set_memory_growth(gpu, True)
     else:
         print("GPU is not available.")
-
 configure_gpu()
-
 
 import numpy as np
 import tensorflow as tf
@@ -20,13 +17,13 @@ import matplotlib.pyplot as plt
 import itertools
 from sklearn.metrics import confusion_matrix, classification_report
 
-
+## Constants & Hyperparameters
 num_classes = 3
 input_shape = (128, 128, 3)
 batch_size = 256
-train_data_dir = "/home/tamim/Desktop/Training_Testing_dataset-F62/Train_dataset"
-validation_data_dir = "/home/tamim/Desktop/Training_Testing_dataset-F62/Val_dataset"
-test_data_dir = "/home/tamim/Desktop/Training_Testing_dataset-F62/Test_dataset"
+train_data_dir = "Path to Train_Dataset"
+validation_data_dir = "Path to Val_dataset"
+test_data_dir = "Path to Test_dataset"
 
 #Parameters
 learning_rate = 0.001
@@ -41,8 +38,6 @@ transformer_layers = 8
 mlp_head_units = [2048, 1024]
 dropout_rate = 0.5 
 num_epochs = 500
-
-
 
 # Initialize the MirroredStrategy to use both gpu
 strategy = tf.distribute.MirroredStrategy()
@@ -151,8 +146,6 @@ def run_experiment(model):
 
     return history
 
-
-
 def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
   
     plt.figure(figsize=(4,4))
@@ -191,17 +184,12 @@ def evaluate_model(model, test_generator):
     cm = confusion_matrix(y_true, y_pred_classes)
     plot_confusion_matrix(cm, classes=test_generator.class_indices.keys())
     
-    # to print classification report we are using this code
+    # to print classification report
     print(classification_report(y_true, y_pred_classes, target_names=test_generator.class_indices.keys()))
 
-
-    
-    
 if __name__ == "__main__":
     
     configure_gpu()
-
-    # Data generators
     train_datagen = keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
     validation_datagen = keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
     test_datagen = keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
@@ -232,7 +220,6 @@ if __name__ == "__main__":
     
     # Visualization code 
     x_train_batch, _ = next(train_generator)
-    
     plt.figure(figsize=(4, 4))
     image = x_train_batch[np.random.choice(range(x_train_batch.shape[0]))]
     plt.imshow(image)
