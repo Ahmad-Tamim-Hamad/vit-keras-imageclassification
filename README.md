@@ -1,5 +1,5 @@
 # ViT-Transformers
-This model demonstrates how to implement, train, and evaluate a Vision Transformer for an image classification task on a custom dataset
+This model demonstrates how to implement, train, and evaluate a Vision Transformer for image classification task on a custom dataset
 
 ## Key parts of the code include
 * Import Statements: It imports necessary libraries such as numpy, pandas, TensorFlow, and matplotlib.
