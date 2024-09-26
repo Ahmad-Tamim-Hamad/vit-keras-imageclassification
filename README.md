@@ -120,12 +120,12 @@ The repository is structured as follows:
 
 ```bash
 ViT-Image-Classification/
-├── train.py          # Training script
-├── evaluate.py       # Evaluation script
-├── vit_model.py      # Vision Transformer model definition
-├── requirements.txt  # Required Python packages
-├── README.md         # Project documentation
-└── Dataset/          # Dataset folder (should be prepared by the user)
+├── train.py        
+├── evaluate.py      
+├── vit_model.py      
+├── requirements.txt  
+├── README.md         
+└── Dataset/          
 ```
 
 ## Results
