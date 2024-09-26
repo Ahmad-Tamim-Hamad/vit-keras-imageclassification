@@ -1,21 +1,27 @@
-def configure_gpu():
-    import tensorflow as tf
-    if tf.config.list_physical_devices('GPU'):
-        print("GPU is available.")
-        gpus = tf.config.experimental.list_physical_devices('GPU')
-        for gpu in gpus:
-            tf.config.experimental.set_memory_growth(gpu, True)
-    else:
-        print("GPU is not available.")
-configure_gpu()
-
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 import matplotlib.pyplot as plt
 import itertools
+import os
 from sklearn.metrics import confusion_matrix, classification_report
+
+def configure_gpu():
+    import tensorflow as tf
+    try:
+        if tf.config.list_physical_devices('GPU'):
+            print("GPU is available.")
+            gpus = tf.config.experimental.list_physical_devices('GPU')
+            for gpu in gpus:
+                tf.config.experimental.set_memory_growth(gpu, True)
+        else:
+            print("GPU is not available.")
+    except RuntimeError as e:
+        print(f"Error during GPU configuration: {str(e)}")
+
+configure_gpu()
+
 
 ## Constants & Hyperparameters
 num_classes = 3

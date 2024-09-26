@@ -1,48 +1,86 @@
-# ViT-Transformers
+# Vision Transformer (ViT) Classifier for Image Classification
 
-This repository demonstrates how to implement, train, and evaluate a Vision Transformer for an image classification task on a custom dataset.
+Welcome to the **Vision Transformer (ViT) Classifier** project. This repository contains the implementation of a Vision Transformer (ViT) model for image classification. The project is designed to work with any dataset structured in image directories and is equipped with training, validation, and testing functionalities. It also provides tools for evaluating model performance through confusion matrices and classification reports.
 
-## Key Components
+## Table of Contents
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Training the Model](#training-the-model)
+  - [Evaluating the Model](#evaluating-the-model)
+  - [Customizing the Model](#customizing-the-model)
+- [File Structure](#file-structure)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Import Statements
-Import necessary libraries such as NumPy, Pandas, TensorFlow, and Matplotlib.
+## About the Project
 
-### Configuration Class (Config)
-Stores various configuration parameters used throughout the model, including learning rate, batch size, number of epochs, etc.
+This project implements a **Vision Transformer (ViT)** architecture for image classification tasks. It uses TensorFlow and Keras for model construction, training, and evaluation. The project is designed to be scalable across multiple GPUs using TensorFlow's `MirroredStrategy`.
 
-### Data Loading and Preprocessing
-- Load the CIFAR-10 dataset.
-- Extract data related to only three selected classes for training and testing.
+The main objectives are:
+- To classify images using a transformer-based architecture.
+- To experiment with a variety of hyperparameters and augmentation techniques.
+- To allow easy usage and customization for any user interested in image classification with transformers.
 
-### Data Augmentation Layer
-Define a sequence of data preprocessing and augmentation operations to increase the robustness of the model.
+## Features
+- **Vision Transformer Architecture**: Utilizes patches and transformer layers to process images.
+- **Data Augmentation**: Includes horizontal flipping, rotation, and zoom for enhancing training data.
+- **Multi-GPU Support**: Leverages TensorFlow's `MirroredStrategy` for distributed training across multiple GPUs.
+- **Evaluation Tools**: Generates confusion matrices and classification reports.
+- **Configurable Hyperparameters**: Users can adjust image size, patch size, number of transformer layers, etc.
 
-### Multi-Layer Perceptron (MLP) Function
-Create a simple MLP with a specified number of hidden layers.
+## Getting Started
 
-### Patches and PatchEncoder Classes
-- Divide the input image into small patches.
-- Encode these patches into a form that can be processed by the transformer layers.
+### Prerequisites
+Before you begin, ensure that you have the following installed:
+- Python 3.8+
+- TensorFlow 2.5 or newer
+- GPU support (CUDA-enabled GPU recommended for faster training)
+- Required Python libraries (listed in `requirements.txt`)
 
-### Vision Transformer (ViT) Model
-The `create_vision_transformer` function defines the main model, constructing a transformer-based architecture for image classification tasks.
+### Installation
 
-### Model Compilation and Training
-- Compile the model with the AdamW optimizer and Sparse Categorical Crossentropy as the loss function.
-- Train the model on the CIFAR-10 data.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/<your-username>/ViT-Image-Classification.git
+    cd ViT-Image-Classification
+    ```
 
-### Model Evaluation
-- Evaluate the model's performance based on accuracy and loss during training and validation.
-- Visualize these metrics over the epochs with plots.
-- Display the model's accuracy and loss on the test data in a bar plot.
+2. **Create a virtual environment** (optional but recommended):
+    ```bash
+    python -m venv vit-env
+    source vit-env/bin/activate  # On Windows: vit-env\Scripts\activate
+    ```
 
-## Installation
+3. **Install required packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-To install the necessary dependencies, ensure you have the following:
+4. **Set up GPU (optional)**:
+   To use GPU for training, ensure your system has CUDA and cuDNN installed.
 
-```sh
-conda create --name vit-transformers python=3.8.11
-conda activate vit-transformers
-pip install tensorflow-gpu==2.4.1
-pip install keras==2.4.3
-pip install keras-applications==1.0.8
+## Usage
+
+### Training the Model
+
+1. **Prepare your dataset**:
+   Ensure your data is structured as follows:
+   ```bash
+   Dataset/
+   ├── train/
+   │   ├── class1/
+   │   ├── class2/
+   │   └── class3/
+   ├── val/
+   │   ├── class1/
+   │   ├── class2/
+   │   └── class3/
+   └── test/
+       ├── class1/
+       ├── class2/
+       └── class3/
