@@ -1,3 +1,4 @@
+
 # Vision Transformer (ViT) Classifier for Image Classification
 
 Welcome to the **Vision Transformer (ViT) Classifier** project. This repository contains the implementation of a Vision Transformer (ViT) model for image classification. The project is designed to work with any dataset structured in image directories and is equipped with training, validation, and testing functionalities. It also provides tools for evaluating model performance through confusion matrices and classification reports.
@@ -15,7 +16,6 @@ Welcome to the **Vision Transformer (ViT) Classifier** project. This repository 
 - [File Structure](#file-structure)
 - [Results](#results)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## About the Project
 
@@ -53,7 +53,7 @@ Before you begin, ensure that you have the following installed:
 2. **Create a virtual environment** (optional but recommended):
     ```bash
     python -m venv vit-env
-    source vit-env/bin/activate  # On Windows: vit-env\Scripts\activate
+    source vit-env/bin/activate  # On Windows: vit-env\Scripts ctivate
     ```
 
 3. **Install required packages**:
@@ -84,3 +84,60 @@ Before you begin, ensure that you have the following installed:
        ├── class1/
        ├── class2/
        └── class3/
+   ```
+
+2. **Train the model**:
+   Use the provided script to start training your model:
+   ```bash
+   python train.py --train_data_dir <path_to_train_dataset>                    --val_data_dir <path_to_val_dataset>                    --test_data_dir <path_to_test_dataset>                    --epochs 500 --batch_size 256
+   ```
+
+3. **Monitor training**:
+   During training, you will see accuracy and loss updates. The best model will be saved based on validation accuracy.
+
+### Evaluating the Model
+
+Once training is completed, you can evaluate your model on the test dataset:
+```bash
+python evaluate.py --test_data_dir <path_to_test_dataset> --model_path <path_to_model_weights>
+```
+
+### Customizing the Model
+
+You can customize various hyperparameters like learning rate, image size, patch size, number of transformer layers, and more in the configuration section of `train.py`. For example:
+```python
+# Model parameters
+learning_rate = 0.001
+image_size = 128
+patch_size = 8
+num_heads = 4
+transformer_layers = 8
+```
+
+## File Structure
+
+The repository is structured as follows:
+
+```bash
+ViT-Image-Classification/
+├── train.py          # Training script
+├── evaluate.py       # Evaluation script
+├── vit_model.py      # Vision Transformer model definition
+├── requirements.txt  # Required Python packages
+├── README.md         # Project documentation
+└── Dataset/          # Dataset folder (should be prepared by the user)
+```
+
+## Results
+
+Once the training and evaluation are completed, you will get the test accuracy, confusion matrix, and classification report, giving insights into the model’s performance.
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit pull requests for improvements, new features, or bug fixes.
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Create a new Pull Request.
