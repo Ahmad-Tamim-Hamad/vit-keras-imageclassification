@@ -1,8 +1,6 @@
 
 # Vision Transformer (ViT) for Image Classification
 
-Welcome to the **Vision Transformer (ViT) Classifier** project. This repository contains the implementation of a Vision Transformer (ViT) model for image classification. The project is designed to work with any dataset structured in image directories and is equipped with training, validation, and testing functionalities. It also provides tools for evaluating model performance through confusion matrices and classification reports.
-
 ## Table of Contents
 - [About the Project](#about-the-project)
 - [Features](#features)
